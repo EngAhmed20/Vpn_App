@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vpn_basic_project/core/utilis/app_const.dart';
 
+import '../../../core/utilis/app_style/app_text_styles.dart';
+
 class VpnRoundedButton extends StatelessWidget {
   const VpnRoundedButton({super.key, this.onTap});
   final void Function()? onTap;
@@ -40,13 +42,23 @@ class VpnRoundedButton extends StatelessWidget {
                   const SizedBox(height: 10),
                   Text(
                     'Let\'s Connect',
-                    style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold, color: Colors.white),
+                    style: textStyle.Bold22.copyWith(color: Colors.white),
                     textAlign: TextAlign.center, // Center the text
                   ),
                 ],
               ),
             ),
           ),
+          const SizedBox(height: 15,),
+          Container(
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                borderRadius:BorderRadius.circular(15),
+                color: Colors.redAccent
+            ),
+            child: Text('Not Connected',style: textStyle.semiBold18.copyWith(color: Colors.white),),
+          ),
+
         ],
       ),
     );

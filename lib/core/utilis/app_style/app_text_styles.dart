@@ -24,6 +24,10 @@ abstract class textStyle{
     fontWeight:  FontWeight.bold,
     fontSize: 19,
   );
+  static const TextStyle Bold22=TextStyle(
+    fontWeight:  FontWeight.bold,
+    fontSize: 22,
+  );
   static const TextStyle semiBold16=TextStyle(
     fontWeight:  FontWeight.w600,
     fontSize: 16,
