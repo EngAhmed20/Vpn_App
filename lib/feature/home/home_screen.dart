@@ -4,6 +4,7 @@ import 'package:vpn_basic_project/core/appPref/app_preference.dart';
 import 'package:vpn_basic_project/core/utilis/app_style/app_text_styles.dart';
 import 'package:vpn_basic_project/feature/home/widget/bottom_nav_bar.dart';
 import 'package:vpn_basic_project/feature/home/widget/custom_rounded_button.dart';
+import 'package:vpn_basic_project/feature/home/widget/vpn_rounded_button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -72,6 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
+            VpnRoundedButton(onTap: (){},),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
