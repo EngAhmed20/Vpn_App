@@ -59,35 +59,39 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CustomRoundedButton(
-                    title: 'Location',
-                    subTitle: 'Free',
-                    icon: Icons.flag_circle_rounded,
-                    backgroundColor: Colors.redAccent),
+                  title: 'Location',
+                  subTitle: 'Free',
+                  icon: Icons.flag_circle_rounded,
+                  backgroundColor: Color(0xFF2ECC71),
+                ),
                 CustomRoundedButton(
-                    title: '60 ms',
-                    subTitle: 'Ping',
-                    icon: Icons.graphic_eq_outlined,
-                    backgroundColor: Colors.redAccent),
+                  title: '60 ms',
+                  subTitle: 'Ping',
+                  icon: Icons.graphic_eq_outlined,
+                  backgroundColor: Color(0xFFBDC3C7),
+                ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CustomRoundedButton(
-                    title: '0 kbps',
-                    subTitle: 'Download',
-                    icon: Icons.download_outlined,
-                    backgroundColor: Colors.redAccent),
+                  title: '0 kbps',
+                  subTitle: 'Download',
+                  icon: Icons.download_outlined,
+                  backgroundColor: Color(0xFF4A90E2),
+                ),
                 CustomRoundedButton(
-                    title: '0 kbps',
-                    subTitle: 'Upload',
-                    icon: Icons.upload_outlined,
-                    backgroundColor: Colors.redAccent),
+                  title: '0 kbps',
+                  subTitle: 'Upload',
+                  icon: Icons.upload_outlined,
+                  backgroundColor: Color(0xFF8E44AD),
+                ),
               ],
             ),
-
           ],
         ),
+
       ),
     );
   }
