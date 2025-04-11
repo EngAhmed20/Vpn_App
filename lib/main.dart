@@ -27,10 +27,10 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData(
           brightness: Brightness.dark,
-        appBarTheme: AppBarTheme(
-          centerTitle: true,
-          elevation: 3,
-        )
+          appBarTheme: AppBarTheme(
+            centerTitle: true,
+            elevation: 3,
+          )
       ),
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
