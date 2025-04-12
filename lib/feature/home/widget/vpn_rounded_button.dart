@@ -9,12 +9,13 @@ class VpnRoundedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center, // Align the container to the center
-        children: [
-          Container(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center, // Align the container to the center
+      children: [
+        InkWell(
+          onTap: onTap,
+          customBorder: CircleBorder(),
+          child: Container(
             padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Colors.red.withOpacity(0.5),
@@ -49,18 +50,18 @@ class VpnRoundedButton extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 15,),
-          Container(
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                borderRadius:BorderRadius.circular(15),
-                color: Colors.redAccent
-            ),
-            child: Text('Not Connected',style: textStyle.semiBold18.copyWith(color: Colors.white),),
+        ),
+        const SizedBox(height: 15,),
+        Container(
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+              borderRadius:BorderRadius.circular(15),
+              color: Colors.redAccent
           ),
+          child: Text('Not Connected',style: textStyle.semiBold18.copyWith(color: Colors.white),),
+        ),
 
-        ],
-      ),
+      ],
     );
   }
 }
