@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vpn_basic_project/feature/home/home_screen.dart';
+import 'package:vpn_basic_project/feature/home/presentation/view/home_screen.dart';
 
 import 'core/appPref/app_preference.dart';
 

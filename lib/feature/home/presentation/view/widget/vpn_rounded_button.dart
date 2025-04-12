@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vpn_basic_project/core/utilis/app_const.dart';
 
-import '../../../core/utilis/app_style/app_text_styles.dart';
+import '../../../../../core/utilis/app_style/app_text_styles.dart';
+
 
 class VpnRoundedButton extends StatelessWidget {
   const VpnRoundedButton({super.key, this.onTap});
@@ -10,7 +11,7 @@ class VpnRoundedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center, // Align the container to the center
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         InkWell(
           onTap: onTap,
@@ -18,7 +19,7 @@ class VpnRoundedButton extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.red.withOpacity(0.5),
+              color: Colors.red.withOpacity(0.3),
               shape: BoxShape.circle,
             ),
             child: Container(
