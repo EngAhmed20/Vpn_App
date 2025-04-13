@@ -1,47 +1,47 @@
 class VpnModel {
-  final String hostName;
-  final int ip;
-  final int ping;
-  final int speed;
-  final String countryLongName;
-  final String countryShortName;
-  final int vpnSessionNum;
-  final String base64OpenVpnConfigurationDate;
+  final String HostName;
+  final int IP;
+  final int Ping;
+  final int Speed;
+  final String CountryLong;
+  final String CountryShort;
+  final int NumVpnSessions;
+  final String OpenVPN_ConfigData_Base64;
 
   VpnModel({
-    required this.hostName,
-    required this.ip,
-    required this.ping,
-    required this.speed,
-    required this.countryLongName,
-    required this.countryShortName,
-    required this.vpnSessionNum,
-    required this.base64OpenVpnConfigurationDate,
+    required this.HostName,
+    required this.IP,
+    required this.Ping,
+    required this.Speed,
+    required this.CountryLong,
+    required this.CountryShort,
+    required this.NumVpnSessions,
+    required this.OpenVPN_ConfigData_Base64,
   });
 
   factory VpnModel.fromJson(Map<String, dynamic> json) {
     return VpnModel(
-      hostName: json['hostName'] ?? '',
-      ip: json['ip'] ?? 0,
-      ping: json['ping'] ?? 0,
-      speed: json['speed'] ?? 0,
-      countryLongName: json['countryLongName'] ?? '',
-      countryShortName: json['countryShortName'] ?? '',
-      vpnSessionNum: json['vpnSessionNum'] ?? 0,
-      base64OpenVpnConfigurationDate: json['base64OpenVpnConfigurationDate'] ?? '',
+      HostName: json['HostName'] ?? '',
+      IP: json['IP'] ?? 0,
+      Ping: json['Ping'] ?? 0,
+      Speed: json['Speed'] ?? 0,
+      CountryLong: json['CountryLong'] ?? '',
+      CountryShort: json['CountryShort'] ?? '',
+      NumVpnSessions: json['NumVpnSessions'] ?? 0,
+      OpenVPN_ConfigData_Base64: json['OpenVPN_ConfigData_Base64'] ?? '',
     );
   }
 
-  toJson() {
+   toJson() {
     return {
-      'hostName': hostName,
-      'ip': ip,
-      'ping': ping,
-      'speed': speed,
-      'countryLongName': countryLongName,
-      'countryShortName': countryShortName,
-      'vpnSessionNum': vpnSessionNum,
-      'base64OpenVpnConfigurationDate': base64OpenVpnConfigurationDate,
+      'HostName': HostName,
+      'IP': IP,
+      'Ping': Ping,
+      'Speed': Speed,
+      'CountryLong': CountryLong,
+      'CountryShort': CountryShort,
+      'NumVpnSessions': NumVpnSessions,
+      'OpenVPN_ConfigData_Base64': OpenVPN_ConfigData_Base64,
     };
   }
 }
