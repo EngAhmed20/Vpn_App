@@ -1,8 +1,8 @@
 import'package:flutter/material.dart';
 import'package:vpn_basic_project/core/utilis/app_const.dart';
 import 'package:vpn_basic_project/core/utilis/app_style/app_text_styles.dart';
-InkWell bottomNavBar(context) => InkWell(
-    onTap: (){},
+InkWell bottomNavBar({context,void Function()? onTap}) => InkWell(
+    onTap: onTap,
     child: Container(
   padding: EdgeInsets.symmetric(horizontal:AppConst.getSize(context).width*.031
   ),

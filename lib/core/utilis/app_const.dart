@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppConst {
+  static const apiLink='https://www.vpngate.net/api/iphone/';
+  static const ipDetailsLink='http://ip-api.com/json/';
   static const darkMode = 'darkMode';
   static const lightMode = 'lightMode';
   static const hiveBox = 'data';
@@ -9,6 +11,8 @@ class AppConst {
     // أو: return MediaQuery.of(context).size;
   }
 
+  static const String startVpnButtonText="Start VPN";
+  static const String stopVpnButtonText='Disconnect VPN';
   static const storeVpnModel = 'storeVpnModel';
   static const storeVpnList = 'storeVpnList';
   //vpn engine
@@ -26,4 +30,6 @@ class AppConst {
   static const vpnConnectingNow = "connecting";
   static const vpnWaitPrepareNow = "prepare";
   static const vpnDeniedNow = "denied";
+  static const vpnUserName="vpn";
+  static const vpnUserPassword="vpn";
 }

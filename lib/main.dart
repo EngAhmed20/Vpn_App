@@ -30,7 +30,8 @@ class MyApp extends StatelessWidget {
           appBarTheme: AppBarTheme(
             centerTitle: true,
             elevation: 3,
-          )
+          ),
+
       ),
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
@@ -41,6 +42,9 @@ extension AppTheme on ThemeData{
   Color get lightTextColor=>AppPreference.isDarkMode?Colors.white70:Colors.black54;
   Color get buttonNavColor=>AppPreference.isDarkMode?Colors.white12:Colors.redAccent;
   Color get bottomVanColor=>AppPreference.isDarkMode?Colors.white:Colors.black;
+  Color get cardColor=>Colors.white;
+
+
 
 
 }

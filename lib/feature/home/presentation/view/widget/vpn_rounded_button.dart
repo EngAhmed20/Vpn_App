@@ -5,8 +5,10 @@ import '../../../../../core/utilis/app_style/app_text_styles.dart';
 
 
 class VpnRoundedButton extends StatelessWidget {
-  const VpnRoundedButton({super.key, this.onTap});
+  const VpnRoundedButton({super.key, this.onTap, required this.color, required this.text});
   final void Function()? onTap;
+  final Color color;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class VpnRoundedButton extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.red.withOpacity(0.3),
+              color: color.withOpacity(0.3),
               shape: BoxShape.circle,
             ),
             child: Container(
@@ -29,7 +31,7 @@ class VpnRoundedButton extends StatelessWidget {
                 minHeight: AppConst.getSize(context).height*0.20,
               ),
               decoration: BoxDecoration(
-                color: Colors.redAccent,
+                color: color,
                 shape: BoxShape.circle,
               ),
               child: Column(
@@ -43,7 +45,7 @@ class VpnRoundedButton extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    'Let\'s Connect',
+                    text,
                     style: textStyle.Bold22.copyWith(color: Colors.white),
                     textAlign: TextAlign.center, // Center the text
                   ),

@@ -19,24 +19,25 @@ class AppPreference{
   /// get mode
   static bool get isDarkMode=>boxOfData.get(AppConst.darkMode)??false;
 /// for saving selected vpn details
-static VpnModel get vpnDataModel=>VpnModel.fromJson(boxOfData.get(AppConst.storeVpnModel)??{});
-
-  static  set vpnDataModel(VpnModel value)=>boxOfData.put(AppConst.storeVpnModel,value.toJson());
+  static VpnModel get vpnDataModel => VpnModel.fromJson(jsonDecode(boxOfData.get(AppConst.storeVpnModel)??'{}'));
+  static  set vpnDataModel(VpnModel value)=>boxOfData.put(AppConst.storeVpnModel,jsonEncode(value));
 
 
 /// save all vpn list
 static set vpnList(List<VpnModel>vpnList)=>boxOfData.put(AppConst.storeVpnList,jsonEncode(vpnList));
 static List<VpnModel> get vpnList{
   List<VpnModel>vpnList=[];
-  final allData=jsonDecode(boxOfData.get(AppConst.storeVpnList))??[];
+  final allData = jsonDecode(boxOfData.get(AppConst.storeVpnList) ?? '[]');
   for(var data in allData){
     vpnList.add(VpnModel.fromJson(data));
   }
   return vpnList;
 }
 /*
-  //static VpnModel get vpnModel => VpnModel.fromJson(jsonDecode(boxOfData.get('vpn')));
- // static  set vpnModel(VpnModel value)=>boxOfData.put('vpn',jsonEncode(value));
+static VpnModel get vpnDataModel=>VpnModel.fromJson(boxOfData.get(AppConst.storeVpnModel)??{});
+
+  static  set vpnDataModel(VpnModel value)=>boxOfData.put(AppConst.storeVpnModel,value.toJson());
+
 static set vpnList(List<VpnModel> vpnList) {
   // تحويل كل كائن VpnModel إلى خريطة باستخدام toJson() وتخزينها مباشرة
   final List<Map<String, dynamic>> vpnListJson = vpnList.map((vpn) => vpn.toJson()).toList();
