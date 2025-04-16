@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vpn_basic_project/core/appPref/app_preference.dart';
 import 'package:vpn_basic_project/core/utilis/app_style/app_text_styles.dart';
 import 'package:vpn_basic_project/feature/avilableVpn/presentation/view/available_vpn_scr.dart';
 import 'package:vpn_basic_project/feature/home/model/vpn_status.dart';
@@ -18,6 +17,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    VpnEngine.snapShotVpnStage().listen((event){
+      homeController.vpnConnectionState.value=event;
+    });
     return Scaffold(
       bottomNavigationBar: SafeArea(
         child: Semantics(button: true, child: bottomNavBar(context: context,onTap: (){
@@ -30,11 +32,9 @@ class HomeScreen extends StatelessWidget {
           style: textStyle.Bold28,
         ),
         leading: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.perm_device_info,
-              size: 30,
-            )),
+            onPressed: () {
+            },
+            icon:Icon(Icons.perm_device_info,size: 30,)),
         actions: [
           Obx(() {
             return IconButton(

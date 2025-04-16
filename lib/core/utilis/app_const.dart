@@ -32,4 +32,4 @@ class AppConst {
   static const vpnDeniedNow = "denied";
   static const vpnUserName="vpn";
   static const vpnUserPassword="vpn";
-}
+  static const bandwidthUnits = ["Bps", "Kbps", "Mbps", "Gbps", "Tbps"];}

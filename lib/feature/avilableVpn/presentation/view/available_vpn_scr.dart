@@ -11,25 +11,25 @@ class AvailableVpnScr extends StatelessWidget {
 final vpnLocationController =VpnLocationController();
   @override
   Widget build(BuildContext context) {
-  /*  if(vpnLocationController.vpnFreeServerAvailableList.isEmpty)
+    if(vpnLocationController.vpnFreeServerAvailableList.isEmpty)
       {
         vpnLocationController.retrieveVpnInfo();
-      }*/
-   /* return Obx(()=>Scaffold(
+      }
+    return Obx(()=>Scaffold(
       appBar: AppBar(
         title: Text("VPN Location(${vpnLocationController.vpnFreeServerAvailableList.length})"
         ,style: textStyle.Bold28,
         ),
       ),
+      floatingActionButton:FloatingActionButton(onPressed: ()async{
+        await vpnLocationController.retrieveVpnInfo();
+      }),
       body: vpnLocationController.isLoadingNewLocation.value?buildLoadingUiWidget()
       :vpnLocationController.vpnFreeServerAvailableList.isEmpty?
-      noVpnFoundedUiWidget():vpnAvailableWidget(),
+      noVpnFoundedUiWidget():vpnAvailableWidget(context: context,vpnLocationController: vpnLocationController),
 
-    ));*/
-    return Scaffold(
-      appBar: AppBar(),
-      body: vpnAvailableWidget(context: context, countryFlag: 'sa', countryName: 'sauid', connectedUser: 2, subTitle: ''),
-    );
+    ));
+
   }
 
 

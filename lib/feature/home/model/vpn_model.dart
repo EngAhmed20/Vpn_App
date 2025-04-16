@@ -1,6 +1,6 @@
 class VpnModel {
   final String HostName;
-  final int IP;
+  final String IP;
   final int Ping;
   final int Speed;
   final String CountryLong;
@@ -22,8 +22,8 @@ class VpnModel {
   factory VpnModel.fromJson(Map<String, dynamic> json) {
     return VpnModel(
       HostName: json['HostName'] ?? '',
-      IP: json['IP'] ?? 0,
-      Ping: json['Ping'] ?? 0,
+      IP: json['IP'] ?? '',
+      Ping: json['Ping'] ??0,
       Speed: json['Speed'] ?? 0,
       CountryLong: json['CountryLong'] ?? '',
       CountryShort: json['CountryShort'] ?? '',
