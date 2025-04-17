@@ -58,19 +58,34 @@ Icon get iconMood{
 
   }
 }
-void connectToVpn()async{
+Future<void> connectToVpn()async{
   if(vpnModel.value.OpenVPN_ConfigData_Base64.isEmpty){
     Get.snackbar('Country / Location', "Pls select country");
     return ;
-  }if(vpnModel.value.OpenVPN_ConfigData_Base64==AppConst.vpnDisConnectedNow){
+  }
+  if(vpnConnectionState.value==AppConst.vpnDisConnectedNow){
+    print('${vpnConnectionState.value.toString()} 1');
+   vpnConnectionState.value=AppConst.vpnConnectingNow;
+    print('${vpnConnectionState.value.toString()} 2');
+    print(vpnModel.value.OpenVPN_ConfigData_Base64);
     final dataConfigVpn=Base64Decoder().convert(vpnModel.value.OpenVPN_ConfigData_Base64);
+
+
     final config=Utf8Decoder().convert(dataConfigVpn);
     final vpnConfig=VpnConfiguration(
         userName: AppConst.vpnUserName,
         password: AppConst.vpnUserPassword,
         countryName: vpnModel.value.CountryLong,
         config: config);
-   await VpnEngine.startVpnNow(vpnConfig);
+    await VpnEngine.startVpnNow(vpnConfig);
+    vpnConnectionState.value=AppConst.vpnConnectedNow;
+
+
+  }
+  else{
+    await VpnEngine.stopVpnNow();
+    vpnConnectionState.value=AppConst.vpnDisConnectedNow;
+
   }
 }
 

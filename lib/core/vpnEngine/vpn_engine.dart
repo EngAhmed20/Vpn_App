@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/services.dart';
 import 'package:vpn_basic_project/feature/home/model/vpn_configuration.dart';
 import 'package:vpn_basic_project/feature/home/model/vpn_status.dart';
@@ -26,13 +27,18 @@ class VpnEngine {
 
   // Starts the VPN connection using the provided configuration
   static Future<void> startVpnNow(VpnConfiguration vpnConfig) async {
-    return MethodChannel(methodChannelVpnControl).invokeMethod("start", {
-      "config": vpnConfig.config,
-      "country": vpnConfig.countryName,
-      "username": vpnConfig.userName,
-      "password": vpnConfig.password,
-    });
-  }
+try{
+  return MethodChannel(methodChannelVpnControl).invokeMethod("start", {
+    "config": vpnConfig.config,
+    "country": vpnConfig.countryName,
+    "username": vpnConfig.userName,
+    "password": vpnConfig.password,
+  });
+
+}catch(e){
+  log(e.toString());
+}
+}
 
   // Stops the VPN connection
   static Future<void> stopVpnNow() {

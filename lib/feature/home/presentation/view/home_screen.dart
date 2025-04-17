@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vpn_basic_project/core/utilis/app_style/app_text_styles.dart';
 import 'package:vpn_basic_project/feature/avilableVpn/presentation/view/available_vpn_scr.dart';
+import 'package:vpn_basic_project/feature/connectedVpvInfo/presentation/views/connected_network_info.dart';
 import 'package:vpn_basic_project/feature/home/model/vpn_status.dart';
 import 'package:vpn_basic_project/feature/home/presentation/manager/home_controller.dart';
 import 'package:vpn_basic_project/feature/home/presentation/view/widget/bottom_nav_bar.dart';
@@ -33,6 +34,7 @@ class HomeScreen extends StatelessWidget {
         ),
         leading: IconButton(
             onPressed: () {
+              Get.to(ConnectedNetworkInfo());
             },
             icon:Icon(Icons.perm_device_info,size: 30,)),
         actions: [
@@ -69,7 +71,7 @@ class HomeScreen extends StatelessWidget {
                             .vpnModel.value.CountryLong.isEmpty
                         ? null
                         : AssetImage(
-                            "assets/images/countryFlags/${homeController.vpnModel.value.CountryShort}.png"),
+                            "assets/images/countryFlags/${(homeController.vpnModel.value.CountryShort).toLowerCase()}.png"),
                   ),
                   CustomRoundedButton(
                     title: homeController.vpnModel.value.CountryLong.isEmpty
@@ -84,7 +86,9 @@ class HomeScreen extends StatelessWidget {
             ),
             Obx(
               () => VpnRoundedButton(
-                onTap: () {},
+                onTap: () async{
+                  await homeController.connectToVpn();
+                },
                 color: homeController.RoundedVpnColor,
                 text: homeController.RoundedVpnButtonText,
               ),

@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vpn_basic_project/core/appPref/app_preference.dart';
+import 'package:vpn_basic_project/core/vpnEngine/vpn_engine.dart';
 import 'package:vpn_basic_project/feature/home/model/vpn_model.dart';
 import 'package:vpn_basic_project/feature/home/presentation/manager/home_controller.dart';
 
@@ -28,7 +30,20 @@ class VpnAvailableCard extends StatelessWidget {
       color: ThemeData().cardColor,
       margin: EdgeInsets.symmetric(horizontal: 16,vertical: 16),
       child: ListTile(
-        onTap: (){},
+        onTap: ()async{
+          homeController.vpnModel.value=vpnModel;
+          AppPreference.vpnDataModel=vpnModel;
+          Get.back();
+          if(homeController.vpnConnectionState.value==AppConst.vpnConnectedNow)
+            {
+              print('re');
+             await VpnEngine.stopVpnNow();
+              homeController.connectToVpn();
+            }else{
+            print('else');
+             await homeController.connectToVpn();
+          }
+        },
         contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 1),
         title: Text(vpnModel.CountryLong,style: textStyle.Bold23.copyWith(color: Colors.black),textAlign: TextAlign.center,),
         leading: Image.asset('assets/images/countryFlags/${(vpnModel.CountryShort).toLowerCase()}.png',width:AppConst.getSize(context).width*0.14),

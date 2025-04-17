@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vpn_basic_project/core/utilis/app_style/app_text_styles.dart';
@@ -21,9 +22,17 @@ final vpnLocationController =VpnLocationController();
         ,style: textStyle.Bold28,
         ),
       ),
-      floatingActionButton:FloatingActionButton(onPressed: ()async{
-        await vpnLocationController.retrieveVpnInfo();
-      }),
+      floatingActionButton:SizedBox(
+        width: 60,
+        height: 60,
+        child: FloatingActionButton(
+
+          shape: CircleBorder(),
+          backgroundColor:Colors.redAccent,
+          onPressed: ()async{
+          await vpnLocationController.retrieveVpnInfo();
+        },child:vpnLocationController.isLoadingNewLocation.value?CircularProgressIndicator(color: Colors.white,): Icon(CupertinoIcons.refresh_circled,color: Colors.white,size: 40,),),
+      ),
       body: vpnLocationController.isLoadingNewLocation.value?buildLoadingUiWidget()
       :vpnLocationController.vpnFreeServerAvailableList.isEmpty?
       noVpnFoundedUiWidget():vpnAvailableWidget(context: context,vpnLocationController: vpnLocationController),

@@ -21,7 +21,7 @@ class AppConst {
   static const killSwitchVpn = "kill_switch";
   static const refreshVpn = "refresh";
   static const stageVpn = "stage";
-  static const vpnConnectedNow = "connected";
+  static const vpnConnectedNow = "connectedd";
   static const vpnDisConnectedNow = "disconnected";
   static const vpnWaitConnectionNow = "wait_connection";
   static const vpnAuthNow = "authenticating";

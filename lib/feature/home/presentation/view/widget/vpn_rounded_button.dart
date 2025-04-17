@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:vpn_basic_project/core/utilis/app_const.dart';
+import 'package:vpn_basic_project/feature/home/presentation/manager/home_controller.dart';
 
 import '../../../../../core/utilis/app_style/app_text_styles.dart';
 
 
 class VpnRoundedButton extends StatelessWidget {
-  const VpnRoundedButton({super.key, this.onTap, required this.color, required this.text});
+   VpnRoundedButton({super.key, this.onTap, required this.color, required this.text});
   final void Function()? onTap;
   final Color color;
   final String text;
-
+  final homeController = Get.find<HomeController>();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -61,7 +63,9 @@ class VpnRoundedButton extends StatelessWidget {
               borderRadius:BorderRadius.circular(15),
               color: Colors.redAccent
           ),
-          child: Text('Not Connected',style: textStyle.semiBold18.copyWith(color: Colors.white),),
+          child: Text(homeController.vpnConnectionState.value==AppConst.vpnDisConnectedNow?'Not Connected':
+            homeController.vpnConnectionState.replaceAll("_", " ").toLowerCase()
+            ,style: textStyle.semiBold18.copyWith(color: Colors.white),),
         ),
 
       ],

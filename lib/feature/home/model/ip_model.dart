@@ -23,9 +23,9 @@ class IpModel {
       regionName: json['regionName'] ?? '',
       city: json['city'] ?? '',
       zip: json['zip'] ?? '',
-      timezone: json['timezone'] ?? '',
-      isp: json['isp'] ?? '',
-      query: json['query'] ?? '',
+      timezone: json['timezone'] ?? 'UnKnown',
+      isp: json['isp'] ?? 'UnKnown',
+      query: json['query'] ?? 'Not available',
     );
   }
 
