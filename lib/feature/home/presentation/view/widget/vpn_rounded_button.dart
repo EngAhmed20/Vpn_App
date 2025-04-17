@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vpn_basic_project/core/utilis/app_const.dart';
 import 'package:vpn_basic_project/feature/home/presentation/manager/home_controller.dart';
+import 'package:vpn_basic_project/feature/home/presentation/view/widget/timer_widget.dart';
 
 import '../../../../../core/utilis/app_style/app_text_styles.dart';
 
@@ -67,6 +68,8 @@ class VpnRoundedButton extends StatelessWidget {
             homeController.vpnConnectionState.replaceAll("_", " ").toLowerCase()
             ,style: textStyle.semiBold18.copyWith(color: Colors.white),),
         ),
+        const SizedBox(height: 15,),
+        Obx(()=>TimerWidget(initTimerNow:homeController.vpnConnectionState.value==AppConst.vpnConnectedNow),)
 
       ],
     );
